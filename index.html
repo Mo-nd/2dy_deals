@@ -1,93 +1,145 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مدونة كاتب سعودي</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محمد الحربي</title>
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Tahoma", sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      line-height: 1.8;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
-    header h1 {
-      margin-bottom: 10px;
-    }
-    .profile {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-    }
-    .profile img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    .bio {
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
-      padding: 0 20px;
-    }
-    nav {
-      margin: 40px 0;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #0b1220;
       color: white;
-      background: #1f2937;
-      padding: 10px 18px;
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+    }
+
+    .nav .links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    .nav .links a.active {
+      background: #ff6a00;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 8%;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0 0 10px;
+    }
+
+    .hero-text h1 span {
+      color: #ff6a00;
+    }
+
+    .hero-text p {
+      color: #d1d5db;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 12px 18px;
       border-radius: 8px;
+      margin-left: 10px;
       font-size: 14px;
     }
-    footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #666;
+
+    .btn-primary {
+      background: #ff6a00;
+      color: white;
     }
+
+    .btn-secondary {
+      background: white;
+      color: #111;
+    }
+
+    /* ===== IMAGE ===== */
+    .hero-image img {
+      width: 340px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-image img {
+        width: 220px;
+        margin-bottom: 20px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>مدونة كاتب سعودي</h1>
-    <p>تأملات في الفكر والأدب والمجتمع</p>
-  </header>
-
-  <div class="profile">
-    <img src="profile.jpg" alt="صورة الكاتب">
+  <div class="nav">
+    <div class="logo">محمد الحربي</div>
+    <div class="links">
+      <a class="active" href="#">الرئيسية</a>
+      <a href="#">المدونة</a>
+      <a href="#">قراءات ومراجعات</a>
+      <a href="#">نبذة عني</a>
+    </div>
   </div>
 
-  <div class="bio">
-    <p>
-      أكتب لأفهم العالم من حولي، وأحاول أن ألتقط تفاصيل الحياة اليومية
-      وأسئلة الهوية والتحولات الاجتماعية بعيون سعودية.
-      هنا تجد المقالات، مراجعات الكتب، واليوميات الفكرية.
-    </p>
-  </div>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>سلمان <span>الدوسري</span></h1>
+      <p>
+        كاتب سعودي مهتم بالفكر، الأدب، والمجتمع.  
+        أسعى من خلال هذه المدونة إلى توثيق التأملات اليومية،
+        مشاركة مراجعات الكتب، وكتابة مقالات تعكس رؤيتي
+        للواقع المحلي والعالمي من منظور سعودي أصيل.
+      </p>
 
-  <nav>
-    <a href="#">مقالات فكرية</a>
-    <a href="#">مراجعات كتب</a>
-    <a href="#">يوميات</a>
-    <a href="#">المجتمع</a>
-  </nav>
+      <div class="buttons">
+        <a href="#" class="btn-primary">اقرأ المدونة</a>
+        <a href="#" class="btn-secondary">تواصل معي</a>
+      </div>
+    </div>
 
-  <footer>
-    © 2026 جميع الحقوق محفوظة
-  </footer>
+    <div class="hero-image">
+      <img src="profile.png" alt="صورة الكاتب">
+    </div>
+  </section>
 
 </body>
 </html>
