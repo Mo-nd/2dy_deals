@@ -3,43 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عروض اليوم | جميع المتاجر في مكان واحد - أمازون، نون، اكسترا، بنده، جرير</title>
-    <meta name="description" content="أفضل عروض وأكواد خصم المتاجر الكبرى: أمازون، نون، اكسترا، بنده، جرير، سيفي، وغيرها. وفر حتى 70% على مشترياتك">
+    <title>عروض أمازون السعودية | أفضل العروض والخصومات اليومية</title>
+    <meta name="description" content="اكتشف أفضل عروض أمازون السعودية اليومية، خصومات حتى 70% على الإلكترونيات، المنزل، الأزياء وغيرها">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --amazon: #ff9900;
-            --noon: #f7c400;
-            --extra: #e31e24;
-            --panda: #008c44;
-            --jarir: #004d99;
-            --sivvi: #000000;
-            --namshi: #ff69b4;
-            
-            --primary: #6366f1;
-            --secondary: #ec4899;
-            --accent: #f59e0b;
+            --amazon-dark: #e8890b;
             --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
-            
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 20px 25px rgba(0,0,0,0.1);
-            --shadow-xl: 0 25px 50px rgba(0,0,0,0.25);
+            --success: #10b981;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -50,67 +31,30 @@
         }
 
         /* Header */
-        .top-bar {
+        .header {
             background: var(--dark);
             color: white;
-            padding: 10px 0;
+            padding: 12px 0;
+            text-align: center;
             font-size: 0.9em;
         }
 
-        .top-bar-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .top-bar-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .top-bar-links a:hover {
-            color: white;
-        }
-
-        .countdown {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-
-        .countdown-item {
-            text-align: center;
-            min-width: 30px;
-        }
-
-        .countdown-number {
+        .header span {
+            color: var(--amazon);
             font-weight: 700;
-            color: var(--accent);
         }
 
         /* Navigation */
         .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            background: white;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 15px 30px;
             display: flex;
@@ -119,29 +63,36 @@
         }
 
         .logo {
-            font-size: 2em;
-            font-weight: 900;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 1.5em;
+            font-weight: 800;
         }
 
-        .logo i {
-            font-size: 1.2em;
-        }
-
-        .nav-center {
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--amazon);
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 40px;
+            justify-content: center;
+            color: white;
+            font-size: 1.3em;
+        }
+
+        .logo-text {
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--amazon);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
@@ -149,528 +100,166 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
-            font-size: 1.05em;
-            position: relative;
-            padding: 5px 0;
+            transition: color 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
+        .nav-links a:hover {
+            color: var(--amazon);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 300px;
-            padding: 12px 45px 12px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--primary);
-            width: 350px;
-        }
-
-        .search-box button {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .action-btn {
-            position: relative;
-            background: none;
-            border: none;
-            font-size: 1.3em;
-            color: var(--dark);
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .action-btn:hover {
-            background: #f1f5f9;
-        }
-
-        .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--secondary);
-            color: white;
-            font-size: 0.7em;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #131921 0%, #232f3e 100%);
             padding: 80px 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.1;
-            filter: blur(100px);
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5em;
-            font-weight: 900;
+            text-align: center;
             color: white;
-            line-height: 1.2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,153,0,0.2);
+            color: var(--amazon);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,153,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 900;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .hero-content h1 span {
-            color: var(--accent);
-            position: relative;
+        .hero h1 span {
+            color: var(--amazon);
         }
 
-        .hero-subtitle {
-            font-size: 1.3em;
+        .hero p {
+            font-size: 1.2em;
             color: #94a3b8;
-            margin-bottom: 30px;
-            line-height: 1.8;
+            margin-bottom: 35px;
         }
 
-        .store-icons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .store-icon {
-            background: rgba(255,255,255,0.1);
-            padding: 15px 25px;
-            border-radius: 16px;
-            display: flex;
+        .hero-btn {
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            color: white;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s;
-        }
-
-        .store-icon:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-        }
-
-        .store-icon i {
-            font-size: 1.5em;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 900;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            color: #64748b;
-            font-size: 0.9em;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--accent);
+            background: var(--amazon);
             color: var(--dark);
             padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
             font-size: 1.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(255,153,0,0.3);
         }
 
-        .btn-primary:hover {
+        .hero-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 15px 40px rgba(255,153,0,0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 2px solid rgba(255,255,255,0.3);
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--dark);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-cards {
-            display: grid;
-            gap: 20px;
-        }
-
-        .hero-card {
-            background: white;
-            border-radius: 24px;
-            padding: 25px;
-            box-shadow: var(--shadow-xl);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-card:nth-child(2) {
-            animation-delay: 0.5s;
-            margin-right: 40px;
-        }
-
-        .hero-card:nth-child(3) {
-            animation-delay: 1s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8em;
-            color: white;
-        }
-
-        .card-content h4 {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
-        .card-content p {
-            color: var(--gray);
-            font-size: 0.9em;
-        }
-
-        .discount-badge {
-            background: var(--secondary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9em;
-        }
-
-        /* Stores Strip */
-        .stores-strip {
-            background: white;
-            padding: 40px 30px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .stores-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .stores-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--gray);
-            font-weight: 600;
-        }
-
-        .stores-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .store-logo {
-            width: 120px;
-            height: 60px;
-            background: #f8fafc;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2em;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .store-logo:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .logo-amazon { color: var(--amazon); border-color: var(--amazon); }
-        .logo-noon { color: var(--noon); border-color: var(--noon); background: #1a1a1a; }
-        .logo-extra { color: var(--extra); border-color: var(--extra); }
-        .logo-panda { color: var(--panda); border-color: var(--panda); }
-        .logo-jarir { color: var(--jarir); border-color: var(--jarir); }
-        .logo-sivvi { color: var(--sivvi); border-color: var(--sivvi); }
-
-        /* Filters */
-        .filters-section {
-            padding: 40px 30px;
-            background: #f8fafc;
-        }
-
-        .filters-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .filters-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-family: inherit;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: rgba(99, 102, 241, 0.05);
-        }
-
-        /* Deals Grid */
-        .deals-section {
+        /* Deals Section */
+        .deals {
             padding: 60px 30px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
+            text-align: center;
+            margin-bottom: 50px;
         }
 
-        .section-title {
-            font-size: 2em;
+        .section-header h2 {
+            font-size: 2.2em;
             font-weight: 800;
+            margin-bottom: 10px;
         }
 
-        .view-all {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1em;
         }
 
         .deals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .deal-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s;
-            position: relative;
-            border: 2px solid transparent;
+            border: 1px solid #e2e8f0;
         }
 
         .deal-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
-        }
-
-        .deal-header {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--amazon);
         }
 
         .deal-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .deal-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
 
-        .deal-card:hover .deal-image {
-            transform: scale(1.1);
+        .deal-card:hover .deal-image img {
+            transform: scale(1.05);
         }
 
-        .deal-badges {
+        .discount-tag {
             position: absolute;
             top: 15px;
             left: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .deal-badge {
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85em;
+            background: #dc2626;
             color: white;
-        }
-
-        .badge-hot { background: #ef4444; }
-        .badge-new { background: var(--success); }
-        .badge-exclusive { background: var(--secondary); }
-
-        .store-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: white;
-            padding: 8px 16px;
-            border-radius: 12px;
+            padding: 6px 14px;
+            border-radius: 8px;
             font-weight: 800;
             font-size: 0.9em;
-            box-shadow: var(--shadow-md);
         }
 
-        .tag-amazon { color: var(--amazon); }
-        .tag-noon { color: var(--noon); background: #1a1a1a; }
-        .tag-extra { color: var(--extra); }
-        .tag-panda { color: var(--panda); }
-        .tag-jarir { color: var(--jarir); }
-
-        .deal-body {
-            padding: 25px;
+        .deal-content {
+            padding: 20px;
         }
 
         .deal-category {
             color: var(--gray);
-            font-size: 0.9em;
+            font-size: 0.85em;
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .deal-title {
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.4;
-            height: 3.2em;
+            height: 3em;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -685,1100 +274,407 @@
         }
 
         .stars {
-            color: var(--accent);
+            color: var(--amazon);
+            font-size: 0.9em;
         }
 
         .rating-count {
             color: var(--gray);
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
-        .deal-prices {
+        .deal-price {
             display: flex;
             align-items: baseline;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .current-price {
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--dark);
         }
 
         .old-price {
-            font-size: 1.1em;
             color: var(--gray);
             text-decoration: line-through;
+            font-size: 0.95em;
         }
 
-        .discount-pill {
-            background: #fee2e2;
-            color: #dc2626;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9em;
-        }
-
-        .deal-footer {
+        .amazon-btn {
             display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 10px;
-        }
-
-        .btn-deal {
-            flex: 1;
+            width: 100%;
+            background: var(--amazon);
+            color: white;
             padding: 14px;
-            border-radius: 12px;
-            text-align: center;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
-        .btn-buy {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-buy:hover {
-            background: var(--primary-dark);
+        .amazon-btn:hover {
+            background: var(--amazon-dark);
             transform: scale(1.02);
         }
 
-        .btn-copy {
-            background: #f1f5f9;
-            color: var(--dark);
-            border: 2px solid #e2e8f0;
-            cursor: pointer;
-        }
-
-        .btn-copy:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .deal-expiry {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e2e8f0;
-            color: var(--gray);
-            font-size: 0.9em;
-        }
-
-        .deal-expiry i {
-            color: #ef4444;
-        }
-
-        /* Categories Section */
-        .categories-section {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 80px 30px;
-        }
-
-        .categories-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .category-item {
+        /* Features */
+        .features {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
+            padding: 60px 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .features-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
             text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .category-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+        .feature i {
+            font-size: 2.5em;
+            color: var(--amazon);
+            margin-bottom: 15px;
         }
 
-        .category-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            margin: 0 auto 20px;
-            color: white;
-        }
-
-        .cat-electronics { background: var(--gradient-1); }
-        .cat-fashion { background: var(--gradient-2); }
-        .cat-home { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .cat-beauty { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .cat-sports { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .cat-grocery { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-
-        .category-item h3 {
+        .feature h3 {
             font-size: 1.2em;
             margin-bottom: 8px;
         }
 
-        .category-item p {
+        .feature p {
             color: var(--gray);
-            font-size: 0.9em;
-        }
-
-        /* Newsletter */
-        .newsletter-section {
-            background: var(--dark);
-            padding: 100px 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .newsletter-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .newsletter-container h2 {
-            color: white;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .newsletter-container p {
-            color: #94a3b8;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 20px 30px;
-            border: none;
-            border-radius: 16px;
-            font-family: inherit;
-            font-size: 1em;
-        }
-
-        .newsletter-btn {
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 20px 40px;
-            border-radius: 16px;
-            font-weight: 800;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .newsletter-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
-        }
-
-        .trust-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #94a3b8;
-        }
-
-        .trust-item i {
-            color: var(--success);
+            font-size: 0.95em;
         }
 
         /* Footer */
         footer {
-            background: #020617;
+            background: var(--dark);
             color: white;
-            padding: 80px 30px 30px;
+            padding: 40px 30px;
+            text-align: center;
         }
 
-        .footer-container {
-            max-width: 1400px;
+        .footer-content {
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
+        .footer-logo {
             font-size: 1.8em;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--amazon);
+        }
+
+        .footer-text {
+            color: #94a3b8;
             margin-bottom: 20px;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .footer-brand p {
-            color: #64748b;
             line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .app-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .app-btn {
-            background: rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .app-btn:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-column h4 {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            color: white;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column li {
-            margin-bottom: 12px;
-        }
-
-        .footer-column a {
-            color: #64748b;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-column a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .payment-methods {
-            display: flex;
-            gap: 15px;
-            font-size: 2em;
-            color: #64748b;
         }
 
         .disclaimer {
             background: rgba(255,255,255,0.05);
             padding: 20px;
             border-radius: 12px;
-            margin-top: 30px;
             font-size: 0.85em;
             color: #64748b;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5em;
-            }
-
-            .store-icons, .hero-stats, .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-cards {
-                display: none;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
+        /* Mobile */
         @media (max-width: 768px) {
-            .top-bar {
+            .nav-links {
                 display: none;
             }
 
-            .nav-links, .search-box {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
+            .hero h1 {
+                font-size: 2em;
             }
 
             .deals-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .footer-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <div class="top-bar-links">
-                <a href="#"><i class="fas fa-phone"></i> 9200XXXX</a>
-                <a href="#"><i class="fas fa-envelope"></i> support@example.com</a>
-                <a href="#"><i class="fas fa-question-circle"></i> المساعدة</a>
-            </div>
-            <div class="countdown">
-                <i class="fas fa-clock"></i>
-                <span>ينتهي العرض خلال:</span>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">04</span>
-                </div>
-                <span>:</span>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">32</span>
-                </div>
-                <span>:</span>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">15</span>
-                </div>
-            </div>
-        </div>
+    <!-- Header -->
+    <div class="header">
+        🚚 شحن مجاني على الطلبات أكثر من 200 ريال | <span>عروض محدودة الوقت</span>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-tags"></i>
-                عروض اليوم
-            </div>
-            
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#deals">أفضل العروض</a></li>
-                    <li><a href="#stores">المتاجر</a></li>
-                    <li><a href="#categories">الأقسام</a></li>
-                    <li><a href="#coupons">كوبونات</a></li>
-                </ul>
-                
-                <div class="search-box">
-                    <input type="text" placeholder="ابحث عن منتج، متجر، أو ماركة...">
-                    <button><i class="fas fa-search"></i></button>
+                <div class="logo-icon">
+                    <i class="fab fa-amazon"></i>
+                </div>
+                <div class="logo-text">
+                    عروض <span>أمازون</span>
                 </div>
             </div>
-
-            <div class="nav-actions">
-                <button class="action-btn">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge">3</span>
-                </button>
-                <button class="action-btn">
-                    <i class="fas fa-heart"></i>
-                </button>
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#deals">العروض</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#about">من نحن</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>وفر حتى <span>70%</span> على أفضل المنتجات</h1>
-                <p class="hero-subtitle">
-                    جمعنا لك أفضل عروض المتاجر الكبرى في مكان واحد. أمازون، نون، اكسترا، بنده، جرير وغيرها.
-                </p>
-                
-                <div class="store-icons">
-                    <div class="store-icon">
-                        <i class="fab fa-amazon" style="color: var(--amazon);"></i>
-                        <span>أمازون</span>
-                    </div>
-                    <div class="store-icon">
-                        <i class="fas fa-sun" style="color: var(--noon);"></i>
-                        <span>نون</span>
-                    </div>
-                    <div class="store-icon">
-                        <i class="fas fa-bolt" style="color: var(--extra);"></i>
-                        <span>اكسترا</span>
-                    </div>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">عرض يومي</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">متجر شريك</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2M+</div>
-                        <div class="stat-label">مستخدم نشط</div>
-                    </div>
-                </div>
-
-                <div class="hero-buttons">
-                    <a href="#deals" class="btn-primary">
-                        <i class="fas fa-fire"></i>
-                        اكتشف العروض
-                    </a>
-                    <a href="#stores" class="btn-secondary">
-                        تصفح المتاجر
-                    </a>
-                </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i>
+                عروض اليوم
             </div>
-
-            <div class="hero-image">
-                <div class="hero-cards">
-                    <div class="hero-card">
-                        <div class="card-icon" style="background: var(--amazon);">
-                            <i class="fab fa-amazon"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>خصم حتى 40%</h4>
-                            <p>على الإلكترونيات</p>
-                        </div>
-                        <span class="discount-badge">-40%</span>
-                    </div>
-                    
-                    <div class="hero-card">
-                        <div class="card-icon" style="background: var(--noon);">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>كود خصم خاص</h4>
-                            <p>وفر 50 ريال إضافي</p>
-                        </div>
-                        <span class="discount-badge">NOON50</span>
-                    </div>
-                    
-                    <div class="hero-card">
-                        <div class="card-icon" style="background: var(--extra);">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>عروض اليوم</h4>
-                            <p>لفترة محدودة</p>
-                        </div>
-                        <span class="discount-badge">يومياً</span>
-                    </div>
-                </div>
-            </div>
+            <h1>وفر حتى <span>70%</span> على أفضل المنتجات</h1>
+            <p>اكتشف أحدث عروض أمازون السعودية المحدثة يومياً على الإلكترونيات، المنزل، الأزياء وأكثر</p>
+            <a href="#deals" class="hero-btn">
+                <i class="fas fa-shopping-bag"></i>
+                تصفح العروض
+            </a>
         </div>
     </section>
 
-    <!-- Stores Strip -->
-    <section class="stores-strip" id="stores">
-        <div class="stores-container">
-            <h3 class="stores-title">المتاجر المتاحة</h3>
-            <div class="stores-logos">
-                <div class="store-logo logo-amazon">
-                    <i class="fab fa-amazon"></i> أمازون
-                </div>
-                <div class="store-logo logo-noon">
-                    <i class="fas fa-sun"></i> نون
-                </div>
-                <div class="store-logo logo-extra">
-                    <i class="fas fa-bolt"></i> اكسترا
-                </div>
-                <div class="store-logo logo-panda">
-                    <i class="fas fa-shopping-basket"></i> بنده
-                </div>
-                <div class="store-logo logo-jarir">
-                    <i class="fas fa-book"></i> جرير
-                </div>
-                <div class="store-logo logo-sivvi">
-                    <i class="fas fa-tshirt"></i> سيفي
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Filters -->
-    <section class="filters-section">
-        <div class="filters-container">
-            <div class="filters-row">
-                <button class="filter-btn active"><i class="fas fa-fire"></i> الأكثر شيوعاً</button>
-                <button class="filter-btn"><i class="fas fa-percentage"></i> أعلى خصم</button>
-                <button class="filter-btn"><i class="fas fa-clock"></i> ينتهي قريباً</button>
-                <button class="filter-btn"><i class="fas fa-star"></i> الأعلى تقييماً</button>
-                <button class="filter-btn"><i class="fas fa-tag"></i> كوبونات خصم</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Deals Section -->
-    <section class="deals-section" id="deals">
+    <!-- Deals -->
+    <section class="deals" id="deals">
         <div class="section-header">
-            <h2 class="section-title">🔥 عروض اليوم المميزة</h2>
-            <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
+            <h2>أفضل العروض اليوم</h2>
+            <p>عروض محدودة الوقت على منتجات مختارة بعناية</p>
         </div>
 
         <div class="deals-grid">
-            <!-- Amazon Deal -->
+            <!-- Deal 1 -->
             <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-hot">الأكثر مبيعاً</span>
-                    </div>
-                    <div class="store-tag tag-amazon">
-                        <i class="fab fa-amazon"></i> أمازون
-                    </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" alt="Headphones">
+                    <span class="discount-tag">-40%</span>
                 </div>
-                <div class="deal-body">
+                <div class="deal-content">
                     <div class="deal-category">إلكترونيات</div>
                     <h3 class="deal-title">سماعات Sony WH-1000XM5 إلغاء الضوضاء النشط</h3>
                     <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                        <span class="rating-count">(2,340 تقييم)</span>
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="rating-count">(2,340)</span>
                     </div>
-                    <div class="deal-prices">
+                    <div class="deal-price">
                         <span class="current-price">1,299 ر.س</span>
-                        <span class="old-price">1,799 ر.س</span>
-                        <span class="discount-pill">-28%</span>
+                        <span class="old-price">2,199 ر.س</span>
                     </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> شراء الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('AMZ2024')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
-                    </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال 12 ساعة</span>
-                    </div>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
                 </div>
             </div>
 
-            <!-- Noon Deal -->
+            <!-- Deal 2 -->
             <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-exclusive">حصري</span>
-                    </div>
-                    <div class="store-tag tag-noon">
-                        <i class="fas fa-sun"></i> نون
-                    </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop" alt="Watch">
+                    <span class="discount-tag">-35%</span>
                 </div>
-                <div class="deal-body">
+                <div class="deal-content">
                     <div class="deal-category">إكسسوارات</div>
                     <h3 class="deal-title">ساعة Apple Watch Series 9 GPS 45mm</h3>
                     <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
-                        <span class="rating-count">(1,890 تقييم)</span>
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-count">(1,890)</span>
                     </div>
-                    <div class="deal-prices">
+                    <div class="deal-price">
                         <span class="current-price">1,549 ر.س</span>
-                        <span class="old-price">1,849 ر.س</span>
-                        <span class="discount-pill">-16%</span>
+                        <span class="old-price">2,399 ر.س</span>
                     </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> شراء الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('NOON50')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
-                    </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال 6 ساعات</span>
-                    </div>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
                 </div>
             </div>
 
-            <!-- Extra Deal -->
+            <!-- Deal 3 -->
             <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-new">جديد</span>
-                    </div>
-                    <div class="store-tag tag-extra">
-                        <i class="fas fa-bolt"></i> اكسترا
-                    </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop" alt="Kitchen">
+                    <span class="discount-tag">-50%</span>
                 </div>
-                <div class="deal-body">
+                <div class="deal-content">
                     <div class="deal-category">أجهزة منزلية</div>
-                    <h3 class="deal-title">مكيف سبليت سامسونج 18000 وحدة - بارد فقط</h3>
+                    <h3 class="deal-title">محضرة طعام فيلبس 12 وظيفة 1000 واط</h3>
                     <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                        <span class="rating-count">(456 تقييم)</span>
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="rating-count">(987)</span>
                     </div>
-                    <div class="deal-prices">
-                        <span class="current-price">2,199 ر.س</span>
-                        <span class="old-price">2,899 ر.س</span>
-                        <span class="discount-pill">-24%</span>
+                    <div class="deal-price">
+                        <span class="current-price">449 ر.س</span>
+                        <span class="old-price">899 ر.س</span>
                     </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> شراء الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('EXTRA100')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
-                    </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال يومين</span>
-                    </div>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
                 </div>
             </div>
 
-            <!-- Panda Deal -->
+            <!-- Deal 4 -->
             <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-hot">طلبات كثيرة</span>
-                    </div>
-                    <div class="store-tag tag-panda">
-                        <i class="fas fa-shopping-basket"></i> بنده
-                    </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=400&h=300&fit=crop" alt="Laptop">
+                    <span class="discount-tag">-25%</span>
                 </div>
-                <div class="deal-body">
-                    <div class="deal-category">بقالة</div>
-                    <h3 class="deal-title">عروض البقالة الأسبوعية - خصم على 500+ منتج</h3>
+                <div class="deal-content">
+                    <div class="deal-category">كمبيوتر</div>
+                    <h3 class="deal-title">لابتوب ماك بوك برو 14 بوصة M3</h3>
                     <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                        <span class="rating-count">(12K+ طلب)</span>
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="rating-count">(756)</span>
                     </div>
-                    <div class="deal-prices">
-                        <span class="current-price">تبدأ من 5 ر.س</span>
-                        <span class="old-price">12 ر.س</span>
-                        <span class="discount-pill">-58%</span>
+                    <div class="deal-price">
+                        <span class="current-price">5,999 ر.س</span>
+                        <span class="old-price">7,999 ر.س</span>
                     </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> تسوق الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('PANDA20')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
-                    </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال 3 أيام</span>
-                    </div>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
                 </div>
             </div>
 
-            <!-- Jarir Deal -->
+            <!-- Deal 5 -->
             <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-exclusive">مكتبة جرير</span>
-                    </div>
-                    <div class="store-tag tag-jarir">
-                        <i class="fas fa-book"></i> جرير
-                    </div>
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop" alt="Shoes">
+                    <span class="discount-tag">-45%</span>
                 </div>
-                <div class="deal-body">
-                    <div class="deal-category">كتب وقرطاسية</div>
-                    <h3 class="deal-title">حقيبة ظهر لابتوب مع منفذ USB - مقاومة للماء</h3>
-                    <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
-                        <span class="rating-count">(890 تقييم)</span>
-                    </div>
-                    <div class="deal-prices">
-                        <span class="current-price">149 ر.س</span>
-                        <span class="old-price">299 ر.س</span>
-                        <span class="discount-pill">-50%</span>
-                    </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> شراء الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('JARIR30')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
-                    </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال 24 ساعة</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Namshi/Sivvi Deal -->
-            <div class="deal-card">
-                <div class="deal-header">
-                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=300&fit=crop" alt="Product" class="deal-image">
-                    <div class="deal-badges">
-                        <span class="deal-badge badge-hot">موضة</span>
-                    </div>
-                    <div class="store-tag" style="background: #000; color: white;">
-                        <i class="fas fa-tshirt"></i> سيفي
-                    </div>
-                </div>
-                <div class="deal-body">
+                <div class="deal-content">
                     <div class="deal-category">أزياء</div>
-                    <h3 class="deal-title">طقم رياضي Nike أصلي - تيشيرت + بنطلون</h3>
+                    <h3 class="deal-title">حذاء رياضي Nike Air Max أصلي</h3>
                     <div class="deal-rating">
-                        <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                        <span class="rating-count">(567 تقييم)</span>
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </span>
+                        <span class="rating-count">(3,421)</span>
                     </div>
-                    <div class="deal-prices">
-                        <span class="current-price">349 ر.س</span>
-                        <span class="old-price">699 ر.س</span>
-                        <span class="discount-pill">-50%</span>
+                    <div class="deal-price">
+                        <span class="current-price">329 ر.س</span>
+                        <span class="old-price">599 ر.س</span>
                     </div>
-                    <div class="deal-footer">
-                        <a href="#" class="btn-deal btn-buy">
-                            <i class="fas fa-shopping-cart"></i> شراء الآن
-                        </a>
-                        <button class="btn-deal btn-copy" onclick="copyCode('SIVVI40')">
-                            <i class="fas fa-copy"></i> نسخ الكود
-                        </button>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
+                </div>
+            </div>
+
+            <!-- Deal 6 -->
+            <div class="deal-card">
+                <div class="deal-image">
+                    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop" alt="Camera">
+                    <span class="discount-tag">-30%</span>
+                </div>
+                <div class="deal-content">
+                    <div class="deal-category">كاميرات</div>
+                    <h3 class="deal-title">كاميرا كانون EOS R6 مع عدسة 24-105mm</h3>
+                    <div class="deal-rating">
+                        <span class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </span>
+                        <span class="rating-count">(432)</span>
                     </div>
-                    <div class="deal-expiry">
-                        <i class="fas fa-clock"></i>
-                        <span>ينتهي خلال 8 ساعات</span>
+                    <div class="deal-price">
+                        <span class="current-price">9,499 ر.س</span>
+                        <span class="old-price">13,499 ر.س</span>
                     </div>
+                    <a href="#" class="amazon-btn">
+                        <i class="fab fa-amazon"></i>
+                        شراء من أمازون
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Categories -->
-    <section class="categories-section" id="categories">
-        <div class="categories-container">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <span style="background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 8px 20px; border-radius: 50px; font-weight: 700;">تسوق حسب الاهتمام</span>
-                <h2 style="font-size: 2.5em; margin-top: 20px; font-weight: 800;">تصفح الأقسام</h2>
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <h3>عروض يومية</h3>
+                <p>نحدث العروض يومياً لنضمن لك أحدث الأسعار</p>
             </div>
-            
-            <div class="categories-grid">
-                <div class="category-item">
-                    <div class="category-icon cat-electronics">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>إلكترونيات</h3>
-                    <p>1,240+ عرض</p>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon cat-fashion">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>أزياء</h3>
-                    <p>890+ عرض</p>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon cat-home">
-                        <i class="fas fa-couch"></i>
-                    </div>
-                    <h3>منزل وأثاث</h3>
-                    <p>650+ عرض</p>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon cat-beauty">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>جمال وعناية</h3>
-                    <p>420+ عرض</p>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon cat-sports">
-                        <i class="fas fa-running"></i>
-                    </div>
-                    <h3>رياضة</h3>
-                    <p>380+ عرض</p>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon cat-grocery">
-                        <i class="fas fa-shopping-basket"></i>
-                    </div>
-                    <h3>بقالة</h3>
-                    <p>1,500+ عرض</p>
-                </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>شراء آمن</h3>
+                <p>جميع الروابط مباشرة إلى أمازون السعودية</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter-section">
-        <div class="newsletter-container">
-            <h2>لا تفوت أي عرض!</h2>
-            <p>اشترك في نشرتنا الأسبوعية واحصل على أفضل العروض والكوبونات الحصرية</p>
-            
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('شكراً للاشتراك! سنتواصل معك قريباً.');">
-                <input type="email" class="newsletter-input" placeholder="أدخل بريدك الإلكتروني..." required>
-                <button type="submit" class="newsletter-btn">
-                    <i class="fas fa-paper-plane"></i> اشترك الآن
-                </button>
-            </form>
-
-            <div class="trust-indicators">
-                <div class="trust-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>+50,000 مشترك</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>إلغاء الاشتراك في أي وقت</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-check-circle"></i>
-                    <span>لا رسائل مزعجة</span>
-                </div>
+            <div class="feature">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>شحن سريع</h3>
+                <p>استفد من خدمة Prime للشحن المجاني السريع</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3><i class="fas fa-tags"></i> عروض اليوم</h3>
-                    <p>منصتك الأولى لاكتشاف أفضل العروض والخصومات من أكبر المتاجر الإلكترونية في المملكة والخليج.</p>
-                    
-                    <div class="app-buttons">
-                        <a href="#" class="app-btn">
-                            <i class="fab fa-apple fa-lg"></i>
-                            <div>
-                                <div style="font-size: 0.7em;">حمل من</div>
-                                <div style="font-weight: 700;">App Store</div>
-                            </div>
-                        </a>
-                        <a href="#" class="app-btn">
-                            <i class="fab fa-google-play fa-lg"></i>
-                            <div>
-                                <div style="font-size: 0.7em;">حمل من</div>
-                                <div style="font-weight: 700;">Google Play</div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-snapchat"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4>المتاجر</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أمازون السعودية</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> نون</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> اكسترا</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> بنده</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> جرير</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>الأقسام</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> إلكترونيات</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أزياء</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> منزل</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> جمال</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> بقالة</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>المساعدة</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> كيفية الاستخدام</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> سياسة الخصوصية</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> شروط الاستخدام</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> اتصل بنا</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>للشركات</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> انضم كشريك</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> أضف عرضك</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> الإعلانات</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> API</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-logo">
+                عروض <span>أمازون</span>
             </div>
-
-            <div class="footer-bottom">
-                <p>© 2024 عروض اليوم. جميع الحقوق محفوظة.</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
-                </div>
-            </div>
-
+            <p class="footer-text">
+                موقع مستقل يعرض أفضل عروض أمازون السعودية. نساعدك في توفير الوقت والمال عن طريق جمع أفضل العروض في مكان واحد.
+            </p>
             <div class="disclaimer">
                 <i class="fas fa-info-circle"></i>
-                <strong>إخلاء مسؤولية:</strong> هذا الموقع يحتوي على روابط تسويق بالعمولة (Affiliate Links). عند شرائك من خلال روابطنا، نحصل على عمولة صغيرة من المتاجر بدون أي تكلفة إضافية عليك. جميع العروض والأسعار تخضع لشروط المتاجر الأصلية وقد تتغير without سابق إنذار. نحن لا نتحمل مسؤولية أي خلل في المنتجات أو الخدمات المقدمة من المتاجر الخارجية.
+                هذا الموقع يحتوي على روابط تسويق بالعمولة. عند شرائك من خلال روابطنا، نحصل على عمولة صغيرة من أمازون بدون أي تكلفة إضافية عليك.
             </div>
         </div>
     </footer>
-
-    <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const now = new Date();
-            const endOfDay = new Date();
-            endOfDay.setHours(23, 59, 59, 999);
-            
-            const diff = endOfDay - now;
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Copy Code Function
-        function copyCode(code) {
-            navigator.clipboard.writeText(code).then(() => {
-                alert('تم نسخ الكود: ' + code);
-            });
-        }
-
-        // Filter Buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 1px 2px rgba(0,0,0,0.05)';
-            }
-        });
-    </script>
 </body>
 </html>
