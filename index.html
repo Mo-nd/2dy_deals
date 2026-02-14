@@ -1,236 +1,947 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محمد الحربي | كاتب سعودي</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرئيسية - محمد الحربي</title>
+    <meta name="description" content="كاتب سعودي مهتم بالفكر، الأدب، والمجتمع. أسعى من خلال هذه المدونة إلى توثيق التأملات اليومية، مشاركة مراجعات الكتب، وكتابة مقالات تعكس رؤيتي للواقع المحلي والعالمي من منظور سعودي أصيل">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dark: #64748b;
+        }
 
-<style>
-:root{
-  --bg:#0f172a;
-  --card:#111827;
-  --text:#e5e7eb;
-  --muted:#94a3b8;
-  --accent:#f97316;
-}
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
 
-*{box-sizing:border-box;margin:0;padding:0}
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-body{
-  font-family:'Tajawal',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.8;
-}
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
 
-/* NAV */
-.nav{
-  position:sticky;
-  top:0;
-  background:rgba(15,23,42,.95);
-  backdrop-filter:blur(8px);
-  padding:18px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:10;
-  border-bottom:1px solid rgba(255,255,255,.05);
-}
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
 
-.logo{font-weight:900;font-size:18px}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--text);
+        }
 
-.nav a{
-  text-decoration:none;
-  color:var(--text);
-  margin-left:18px;
-  font-size:14px;
-}
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2em;
+        }
 
-/* HERO */
-.hero{
-  padding:70px 7% 40px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:40px;
-  align-items:center;
-}
+        .logo-text {
+            font-size: 1.3em;
+            font-weight: 800;
+        }
 
-.hero h1{
-  font-size:52px;
-  line-height:1.2;
-  margin-bottom:15px;
-}
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
 
-.hero h1 span{color:var(--accent)}
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.3s;
+            position: relative;
+        }
 
-.hero p{
-  color:var(--muted);
-  margin-bottom:25px;
-}
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
 
-.buttons{
-  display:flex;
-  gap:12px;
-}
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
 
-.btn{
-  padding:12px 18px;
-  border-radius:8px;
-  font-weight:700;
-  text-decoration:none;
-  font-size:14px;
-}
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-.primary{background:var(--accent);color:white}
-.outline{border:1px solid rgba(255,255,255,.15);color:white}
+        .social-nav {
+            display: flex;
+            gap: 12px;
+        }
 
-/* IMAGE */
-.author{
-  text-align:center;
-}
+        .social-nav a {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-.author img{
-  width:260px;
-  height:260px;
-  object-fit:cover;
-  border-radius:50%;
-  border:4px solid rgba(255,255,255,.08);
-}
+        .social-nav a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
 
-/* POSTS */
-.section{
-  padding:40px 7%;
-}
+        .contact-btn {
+            background: var(--text);
+            color: var(--primary);
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
 
-.section h2{
-  margin-bottom:20px;
-  font-size:22px;
-}
+        .contact-btn:hover {
+            background: var(--accent);
+        }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:18px;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
 
-.card{
-  background:var(--card);
-  padding:18px;
-  border-radius:12px;
-  transition:.25s;
-  border:1px solid rgba(255,255,255,.04);
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
 
-.card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,255,255,.12);
-}
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
 
-.card h3{
-  margin-bottom:10px;
-  font-size:18px;
-}
+        .hero-content {
+            padding-left: 20px;
+        }
 
-.card p{
-  color:var(--muted);
-  font-size:14px;
-}
+        .hero-title {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
 
-.meta{
-  font-size:12px;
-  color:#64748b;
-  margin-bottom:10px;
-}
+        .hero-title .highlight {
+            color: var(--accent);
+            position: relative;
+        }
 
-.read{
-  display:inline-block;
-  margin-top:12px;
-  color:var(--accent);
-  font-weight:700;
-  font-size:14px;
-  text-decoration:none;
-}
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: rgba(245, 158, 11, 0.3);
+            z-index: -1;
+        }
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:30px;
-  color:#64748b;
-  font-size:13px;
-  margin-top:40px;
-}
+        .hero-description {
+            font-size: 1.15em;
+            color: var(--text-muted);
+            line-height: 2;
+            margin-bottom: 35px;
+        }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;text-align:center}
-  .buttons{justify-content:center}
-}
-</style>
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 450px;
+            height: 550px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 200px 200px 40px 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .image-bg {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, #d97706 100%);
+            border-radius: 200px 200px 40px 40px;
+            z-index: 1;
+        }
+
+        .image-border {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 200px 200px 40px 40px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* About Section */
+        .about-section {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 100px 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--text);
+        }
+
+        .about-title span {
+            color: var(--accent);
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            line-height: 2.2;
+            margin-bottom: 25px;
+        }
+
+        /* Latest Posts */
+        .posts-section {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 800;
+        }
+
+        .posts-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .post-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .post-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .post-category {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .post-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .post-excerpt {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+            font-size: 0.9em;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--secondary);
+            padding: 100px 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-title {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .services-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: rgba(245, 158, 11, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--accent);
+            font-size: 1.8em;
+        }
+
+        .service-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, transparent 100%);
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h3 span {
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .footer-column h4 {
+            color: var(--text);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark);
+            font-size: 0.9em;
+        }
+
+        /* Mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 0 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 30px 60px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-content {
+                padding-left: 0;
+                order: 2;
+            }
+
+            .hero-title {
+                font-size: 2.8em;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .image-wrapper {
+                width: 320px;
+                height: 400px;
+            }
+
+            .about-section,
+            .posts-section,
+            .services-section,
+            .stats-section {
+                padding: 60px 30px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .social-nav {
+                display: none;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <span class="logo-text">محمد الحربي</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">الرئيسية</a></li>
+                    <li><a href="#">المدونة</a></li>
+                    <li><a href="#">قراءات ومراجعات</a></li>
+                    <li><a href="#">خدماتي</a></li>
+                    <li><a href="#">نبذة عني</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="social-nav">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <a href="#" class="contact-btn">تواصل معنا</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-<nav class="nav">
-  <div class="logo">محمد الحربي</div>
-  <div>
-    <a href="#">الرئيسية</a>
-    <a href="#">المدونة</a>
-    <a href="#">نبذة عني</a>
-  </div>
-</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    محمد<br>
+                    <span class="highlight">الحربي</span>
+                </h1>
+                <p class="hero-description">
+                    كاتب سعودي مهتم بالفكر، الأدب، والمجتمع. أسعى من خلال هذه المدونة إلى توثيق التأملات اليومية، مشاركة مراجعات الكتب، وكتابة مقالات تعكس رؤيتي للواقع المحلي والعالمي من منظور سعودي أصيل.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">
+                        تعرف أكثر
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <i class="fas fa-arrow-right"></i>
+                        خدماتي
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-bg"></div>
+                    <img src="/mnt/kimi/upload/ChatGPT Image Feb 14, 2026, 03_12_20 PM.png" alt="محمد الحربي" class="profile-img">
+                    <div class="image-border"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hero">
-  <div>
-    <h1>محمد <span>الحربي</span></h1>
-    <p>
-      كاتب سعودي مهتم بالفكر والأدب والمجتمع. هنا أوثق التأملات اليومية،
-      وأشارك مراجعات الكتب، وأكتب عن الواقع المحلي والعالمي بعيون سعودية.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#posts">ابدأ القراءة</a>
-      <a class="btn outline" href="#">تواصل معي</a>
-    </div>
-  </div>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">محمد <span>الحربي</span></h2>
+            <p class="about-text">
+                كاتب ومحرر سعودي يتمتع بخبرة تتجاوز 10 سنوات في مجال الإعلام والكتابة الإبداعية. بدأ مسيرته المهنية في الصحافة المكتوبة، حيث عمل كمحرر ثقافي في عدد من الصحف المحلية، قبل أن يتفرغ لكتابة المقالات الفكرية والتقارير الاجتماعية التي تسلط الضوء على التحولات الثقافية في المجتمع السعودي المعاصر.
+            </p>
+        </div>
+    </section>
 
-  <div class="author">
-    <img src="images/profile.png" alt="الكاتب">
-  </div>
-</section>
+    <!-- Latest Posts -->
+    <section class="posts-section">
+        <div class="section-header">
+            <div class="section-label">آخر التدوينات</div>
+            <h2 class="section-title">في مجال الإعلام والكتابة الإبداعية</h2>
+        </div>
+        <div class="posts-grid">
+            <article class="post-card">
+                <div class="post-category">
+                    <i class="fas fa-brain"></i> مقالات فكرية
+                </div>
+                <h3 class="post-title">الصمت في زمن الفضيحة: لماذا نفقد القدرة على التردد؟</h3>
+                <p class="post-excerpt">
+                    في عالم يُكافئ السرعة ويُعاقب التأني، أصبح التردد عيباً بدلاً من أن يكون فضيلة. نستعرض في هذا المقال العلاقة بين الصمت والفضيلة...
+                </p>
+                <div class="post-meta">
+                    <span><i class="far fa-clock"></i> 12 يناير 2024</span>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
 
-<section id="posts" class="section">
-  <h2>أحدث المقالات</h2>
+            <article class="post-card">
+                <div class="post-category">
+                    <i class="fas fa-book"></i> مراجعات كتب
+                </div>
+                <h3 class="post-title">ابن خلدون والعولمة: هل «العصبية» تفسر تويتر؟</h3>
+                <p class="post-excerpt">
+                    قراءة جديدة في مقدمة ابن خلدون تربط بين نظريته القديمة في العصبية وظواهر التواصل الاجتماعي المعاصر...
+                </p>
+                <div class="post-meta">
+                    <span><i class="far fa-clock"></i> 8 يناير 2024</span>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
 
-  <div class="grid">
+            <article class="post-card">
+                <div class="post-category">
+                    <i class="fas fa-users"></i> المجتمع السعودي
+                </div>
+                <h3 class="post-title">القهوة المختصة والتراث: حين يصبح التغيير استعارة</h3>
+                <p class="post-excerpt">
+                    من المقاهي الشعبية إلى المختصة، رحلة تحول ليست مجرد تغيير في الذوق، بل تغيير في طريقة فهمنا للذات...
+                </p>
+                <div class="post-meta">
+                    <span><i class="far fa-clock"></i> 3 يناير 2024</span>
+                    <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
 
-    <div class="card">
-      <div class="meta">فكر • 5 دقائق قراءة</div>
-      <h3>الهوية في زمن التحولات</h3>
-      <p>كيف يعيد المجتمع تعريف نفسه في عالم سريع التبدل.</p>
-      <a class="read" href="post.html?id=1">قراءة المقال ←</a>
-    </div>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="services-title">هل تبحث عن صوت يكتب بصدق، ويفكر بعمق؟</h2>
+                <p class="services-subtitle">
+                    سواء كنت تمثل جهة إعلامية، منصة ثقافية، مؤسسة تعليمية، أو صاحب مشروع يهتم بالمحتوى، يمكننا العمل معًا على:
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="service-title">كتابة المقالات</h3>
+                    <p class="service-desc">مقالات فكرية وتحليلية عميقة تناسب منصتك وجمهورك المستهدف</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="service-title">التحرير الأدبي</h3>
+                    <p class="service-desc">مراجعة وتحرير النصوص بأسلوب احترافي يحافظ على صوت الكاتب</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3 class="service-title">الاستشارات الإعلامية</h3>
+                    <p class="service-desc">تطوير استراتيجيات المحتوى والخطاب الإعلامي للمؤسسات</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">ورش الكتابة</h3>
+                    <p class="service-desc">تدريب عملي على الكتابة الإبداعية والفكرية للفرق والأفراد</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <div class="meta">أدب • 4 دقائق قراءة</div>
-      <h3>لماذا نقرأ الأدب؟</h3>
-      <p>عن العلاقة الخفية بين الحكاية وبناء الوعي.</p>
-      <a class="read" href="post.html?id=2">قراءة المقال ←</a>
-    </div>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>+10</h3>
+                <p>سنوات خبرة</p>
+            </div>
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>مقال منشور</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>عميل سعيد</p>
+            </div>
+            <div class="stat-item">
+                <h3>100K</h3>
+                <p>قارئ شهري</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <div class="meta">يوميات • 3 دقائق قراءة</div>
-      <h3>بين الكاتب والعالم</h3>
-      <p>تفاصيل صغيرة تصنع معنى كبيراً.</p>
-      <a class="read" href="post.html?id=3">قراءة المقال ←</a>
-    </div>
-
-  </div>
-</section>
-
-<div class="footer">
-  © 2026 محمد الحربي. جميع الحقوق محفوظة.
-</div>
-
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>محمد <span>الحربي</span></h3>
+                <p>كاتب سعودي مهتم بالفكر، الأدب، والمجتمع. أكتب لأفهم، لا لأُفهم. أؤمن أن الكلمة الصادقة أقوى من الصراخ العالي.</p>
+            </div>
+            <div class="footer-column">
+                <h4>أقسام الموقع</h4>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المدونة</a></li>
+                    <li><a href="#">قراءات ومراجعات</a></li>
+                    <li><a href="#">خدماتي</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>الخدمات</h4>
+                <ul>
+                    <li><a href="#">كتابة المقالات</a></li>
+                    <li><a href="#">التحرير الأدبي</a></li>
+                    <li><a href="#">الاستشارات</a></li>
+                    <li><a href="#">ورش الكتابة</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>تواصل</h4>
+                <ul>
+                    <li><a href="#">نبذة عني</a></li>
+                    <li><a href="#">تواصل معي</a></li>
+                    <li><a href="#">النشرة البريدية</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 محمد الحربي. جميع الحقوق محفوظة.</p>
+            <p>صُنع بإتقان في الرياض</p>
+        </div>
+    </footer>
 </body>
 </html>
