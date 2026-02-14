@@ -1,45 +1,271 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>متجر العروض</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفضل المنتجات المختارة | تسوق ذكي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body{font-family:sans-serif;background:#f2f2f2;padding:20px}
-    h1{text-align:center}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;margin-top:20px}
-    .card{background:white;padding:10px;border-radius:10px;text-align:center}
-    img{width:100%;height:140px;object-fit:contain}
-    button{background:black;color:white;border:none;padding:8px;width:100%;border-radius:6px;margin-top:5px}
-  </style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: opacity 0.3s ease;
+        }
+
+        .buy-button:hover {
+            opacity: 0.9;
+        }
+
+        .features {
+            background: white;
+            margin-top: 60px;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            margin-top: 60px;
+            opacity: 0.8;
+        }
+
+        .disclaimer {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1>🛍️ أفضل المنتجات المختارة</h1>
+            <p>اكتشف منتجات مميزة بعناية لتوفر لك الوقت والمال</p>
+        </header>
 
-<h1>🔥 أفضل العروض</h1>
+        <div class="products-grid">
+            <!-- منتج 1 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <div class="product-category">تقنية</div>
+                    <h3 class="product-title">أفضل اكسسوارات الهواتف الذكية</h3>
+                    <p class="product-description">
+                        مجموعة مختارة من أجود اكسسوارات الهواتف التي توفر الحماية والأناقة معاً.
+                    </p>
+                    <div class="product-price">$29.99</div>
+                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
+                        شراء الآن من أمازون
+                    </a>
+                </div>
+            </div>
 
-<div class="grid" id="products"></div>
+            <!-- منتج 2 -->
+            <div class="product-card">
+                <div class="product-image">🏠</div>
+                <div class="product-info">
+                    <div class="product-category">منزل</div>
+                    <h3 class="product-title">أدوات المطبخ الذكية</h3>
+                    <p class="product-description">
+                        اجعل طهيك أسهل مع هذه الأدوات المبتكرة التي يحبها كل طباخ.
+                    </p>
+                    <div class="product-price">$45.00</div>
+                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
+                        شراء الآن من أمازون
+                    </a>
+                </div>
+            </div>
 
-<script>
-fetch("products.json")
-.then(r => r.json())
-.then(data => {
-  const container = document.getElementById("products");
-  data.forEach(p => {
-    container.innerHTML += `
-      <div class="card">
-        <img src="${p.image}">
-        <div>${p.title}</div>
-        <div><b>${p.price}</b></div>
-        <a href="${p.link}" target="_blank">
-          <button>اشتري الآن</button>
-        </a>
-      </div>
-    `;
-  });
-});
-</script>
+            <!-- منتج 3 -->
+            <div class="product-card">
+                <div class="product-image">💪</div>
+                <div class="product-info">
+                    <div class="product-category">رياضة</div>
+                    <h3 class="product-title">معدات اللياقة المنزلية</h3>
+                    <p class="product-description">
+                        حافظ على لياقتك من راحة منزلك مع هذه المعدات عالية الجودة.
+                    </p>
+                    <div class="product-price">$89.99</div>
+                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
+                        شراء الآن من أمازون
+                    </a>
+                </div>
+            </div>
+        </div>
 
+        <div class="features">
+            <h2>لماذا تختارنا؟</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>منتجات مختارة بعناية</h3>
+                    <p>نختار فقط المنتجات ذات التقييمات العالية والجودة المثبتة</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>شراء آمن</h3>
+                    <p>جميع المعاملات تتم عبر أمازون مباشرة لضمان أمان كامل</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>توصيل سريع</h3>
+                    <p>استفد من خدمة الشحن السريع لأمازون Prime</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 موقع التسويق بالعمولة. جميع الحقوق محفوظة.</p>
+            <div class="disclaimer">
+                <p>⚠️ إخلاء مسؤولية: هذا الموقع يحتوي على روابط تسويق بالعمولة. قد نحصل على عمولة عند شرائك من خلال روابطنا بدون أي تكلفة إضافية عليك.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
