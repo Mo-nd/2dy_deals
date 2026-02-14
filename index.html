@@ -3,269 +3,1352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أفضل المنتجات المختارة | تسوق ذكي</title>
+    <title>بريميوم ستور | أفضل المنتجات المختارة بتقييمات حقيقية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1200px;
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-1);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 30px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(80px);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow-xl);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            background: white;
+            padding: 40px;
+            margin: -50px 30px 0;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item {
             padding: 20px;
         }
 
-        header {
+        .trust-icon {
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .trust-item h4 {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .trust-item p {
+            color: var(--gray);
+            font-size: 0.9em;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 100px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
             text-align: center;
-            color: white;
-            padding: 60px 20px;
+            margin-bottom: 60px;
         }
 
-        header h1 {
-            font-size: 3em;
+        .section-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9em;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        header p {
-            font-size: 1.3em;
-            opacity: 0.9;
+        .section-title {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
 
-        .products-grid {
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
-        .product-card {
+        .category-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-
-        .product-image {
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            height: 5px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4em;
+            font-size: 2em;
+            margin: 0 auto 20px;
             color: white;
         }
 
-        .product-info {
-            padding: 25px;
-        }
+        .cat-tech { background: var(--gradient-1); }
+        .cat-home { background: var(--gradient-2); }
+        .cat-sport { background: var(--gradient-3); }
+        .cat-beauty { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
 
-        .product-category {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-title {
+        .category-card h3 {
             font-size: 1.5em;
-            margin: 10px 0;
-            color: #333;
+            margin-bottom: 10px;
         }
 
-        .product-description {
-            color: #666;
-            line-height: 1.6;
+        .category-card p {
+            color: var(--gray);
             margin-bottom: 20px;
         }
 
-        .product-price {
-            font-size: 1.8em;
-            color: #e74c3c;
-            font-weight: bold;
+        .category-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Featured Products */
+        .featured {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 100px 30px;
+        }
+
+        .featured-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .product-premium {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-premium:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85em;
+            z-index: 10;
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-premium:hover .product-image-container img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-premium:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .quick-view {
+            background: white;
+            color: var(--dark);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .product-details {
+            padding: 30px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 15px;
         }
 
-        .buy-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: opacity 0.3s ease;
+        .stars {
+            color: var(--accent);
         }
 
-        .buy-button:hover {
-            opacity: 0.9;
+        .rating-text {
+            color: var(--gray);
+            font-size: 0.9em;
         }
 
-        .features {
-            background: white;
-            margin-top: 60px;
-            padding: 60px 40px;
+        .product-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .product-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
             border-radius: 20px;
-            text-align: center;
+            font-size: 0.85em;
+            font-weight: 600;
         }
 
-        .features h2 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 40px;
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .price-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.9em;
+        }
+
+        .current-price {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .amazon-btn {
+            background: #ff9900;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+        }
+
+        .amazon-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 100px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 30px;
+            margin-top: 60px;
         }
 
-        .feature {
-            padding: 20px;
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
 
-        .feature-icon {
-            font-size: 3em;
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--dark);
+            padding: 100px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter h2 {
+            color: white;
+            font-size: 2.5em;
             margin-bottom: 20px;
         }
 
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 10px;
+        .newsletter p {
+            color: #94a3b8;
+            font-size: 1.2em;
+            margin-bottom: 40px;
         }
 
-        footer {
-            text-align: center;
+        .newsletter-form {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-1);
             color: white;
-            padding: 40px;
-            margin-top: 60px;
-            opacity: 0.8;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .disclaimer {
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: white;
+            padding: 80px 30px 30px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
             background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
             font-size: 0.9em;
         }
 
+        .disclaimer {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            header h1 {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
                 font-size: 2em;
             }
-            
-            .products-grid {
+
+            .trust-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🛍️ أفضل المنتجات المختارة</h1>
-            <p>اكتشف منتجات مميزة بعناية لتوفر لك الوقت والمال</p>
-        </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                بريميوم ستور
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#categories">الأقسام</a></li>
+                <li><a href="#featured">المنتجات المميزة</a></li>
+                <li><a href="#why-us">لماذا نحن</a></li>
+            </ul>
+            <a href="#newsletter" class="nav-cta">اشترك الآن</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-        <div class="products-grid">
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <div class="product-image">📱</div>
-                <div class="product-info">
-                    <div class="product-category">تقنية</div>
-                    <h3 class="product-title">أفضل اكسسوارات الهواتف الذكية</h3>
-                    <p class="product-description">
-                        مجموعة مختارة من أجود اكسسوارات الهواتف التي توفر الحماية والأناقة معاً.
-                    </p>
-                    <div class="product-price">$29.99</div>
-                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
-                        شراء الآن من أمازون
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>اكتشف <span>أفضل المنتجات</span> بعناية فائقة</h1>
+                <p class="hero-subtitle">
+                    نختار لك منتجات أمازون الأعلى تقييماً بعناية شديدة. وفر وقتك ومالك مع توصياتنا المثبتة.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">عميل سعيد</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">منتج مختار</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">متوسط التقييم</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn-primary">
+                        <i class="fas fa-fire"></i>
+                        اكتشف المنتجات
+                    </a>
+                    <a href="#why-us" class="btn-secondary">
+                        كيف نختار المنتجات؟
                     </a>
                 </div>
             </div>
-
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <div class="product-image">🏠</div>
-                <div class="product-info">
-                    <div class="product-category">منزل</div>
-                    <h3 class="product-title">أدوات المطبخ الذكية</h3>
-                    <p class="product-description">
-                        اجعل طهيك أسهل مع هذه الأدوات المبتكرة التي يحبها كل طباخ.
-                    </p>
-                    <div class="product-price">$45.00</div>
-                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
-                        شراء الآن من أمازون
-                    </a>
-                </div>
-            </div>
-
-            <!-- منتج 3 -->
-            <div class="product-card">
-                <div class="product-image">💪</div>
-                <div class="product-info">
-                    <div class="product-category">رياضة</div>
-                    <h3 class="product-title">معدات اللياقة المنزلية</h3>
-                    <p class="product-description">
-                        حافظ على لياقتك من راحة منزلك مع هذه المعدات عالية الجودة.
-                    </p>
-                    <div class="product-price">$89.99</div>
-                    <a href="#" class="buy-button" onclick="alert('استبدل هذا الرابط برابط أمازون الخاص بك')">
-                        شراء الآن من أمازون
-                    </a>
-                </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&h=600&fit=crop" alt="Shopping">
             </div>
         </div>
+    </section>
 
-        <div class="features">
-            <h2>لماذا تختارنا؟</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">✅</div>
-                    <h3>منتجات مختارة بعناية</h3>
-                    <p>نختار فقط المنتجات ذات التقييمات العالية والجودة المثبتة</p>
+    <!-- Trust Badges -->
+    <div class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>شراء آمن</h3>
-                    <p>جميع المعاملات تتم عبر أمازون مباشرة لضمان أمان كامل</p>
+                <h4>ضمان أمازون</h4>
+                <p>جميع المشتريات محمية بضمان أمازون الكامل</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-shipping-fast"></i>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>توصيل سريع</h3>
-                    <p>استفد من خدمة الشحن السريع لأمازون Prime</p>
+                <h4>شحن سريع</h4>
+                <p>توصيل سريع مع أمازون Prime في 1-2 يوم</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-undo"></i>
                 </div>
+                <h4>إرجاع سهل</h4>
+                <p>سياسة إرجاع مرنة حتى 30 يوم</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>دعم 24/7</h4>
+                <p>فريق دعم متخصص جاهز لمساعدتك</p>
             </div>
         </div>
-
-        <footer>
-            <p>© 2024 موقع التسويق بالعمولة. جميع الحقوق محفوظة.</p>
-            <div class="disclaimer">
-                <p>⚠️ إخلاء مسؤولية: هذا الموقع يحتوي على روابط تسويق بالعمولة. قد نحصل على عمولة عند شرائك من خلال روابطنا بدون أي تكلفة إضافية عليك.</p>
-            </div>
-        </footer>
     </div>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="section-header">
+            <span class="section-tag">تصفح حسب الاهتمام</span>
+            <h2 class="section-title">الأقسام المميزة</h2>
+            <p class="section-subtitle">اختر من مجموعاتنا المختارة بعناية في مختلف المجالات</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon cat-tech">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>تقنية وأجهزة</h3>
+                <p>أحدث الأجهزة الإلكترونية والاكسسوارات التقنية</p>
+                <a href="#" class="category-link">
+                    تصفح المنتجات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon cat-home">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>المنزل والمطبخ</h3>
+                <p>أدوات منزلية ذكية تجعل حياتك أسهل</p>
+                <a href="#" class="category-link">
+                    تصفح المنتجات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon cat-sport">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>رياضة ولياقة</h3>
+                <p>معدات رياضية عالية الجودة للمحترفين والمبتدئين</p>
+                <a href="#" class="category-link">
+                    تصفح المنتجات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="category-card">
+                <div class="category-icon cat-beauty">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>جمال وعناية</h3>
+                <p>منتجات العناية الشخصية الأعلى تقييماً</p>
+                <a href="#" class="category-link">
+                    تصفح المنتجات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="featured-container">
+            <div class="section-header">
+                <span class="section-tag">الأكثر مبيعاً</span>
+                <h2 class="section-title">منتجاتنا المميزة</h2>
+                <p class="section-subtitle">اخترناها بعناية بناءً على آلاف التقييمات الحقيقية</p>
+            </div>
+            
+            <div class="products-showcase">
+                <!-- Product 1 -->
+                <div class="product-premium">
+                    <span class="product-badge">الأكثر مبيعاً</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop" alt="Headphones">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">عرض سريع</a>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-rating">
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-text">(4.8/5 من 2,340 تقييم)</span>
+                        </div>
+                        <h3 class="product-title">سماعات لاسلكية فاخرة - Noise Cancelling</h3>
+                        <p class="product-description">
+                            تجربة صوتية غامرة مع تقنية إلغاء الضوضاء النشطة. بطارية تدوم 30 ساعة.
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">بلوتوث 5.0</span>
+                            <span class="feature-tag">30 ساعة</span>
+                            <span class="feature-tag">ضمان سنة</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="price-block">
+                                <span class="old-price">$199.99</span>
+                                <span class="current-price">$149.99</span>
+                            </div>
+                            <a href="#" class="amazon-btn">
+                                <i class="fab fa-amazon"></i>
+                                شراء الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-premium">
+                    <span class="product-badge" style="background: var(--success);">خصم 25%</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop" alt="Kitchen">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">عرض سريع</a>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-rating">
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <span class="rating-text">(4.6/5 من 1,890 تقييم)</span>
+                        </div>
+                        <h3 class="product-title">محضرة طعام متعددة الوظائف 12 في 1</h3>
+                        <p class="product-description">
+                            جهاز شامل يشمل الخلاط، المفرمة، العجان، وصانع العصائر في جهاز واحد.
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">12 وظيفة</span>
+                            <span class="feature-tag">1000 واط</span>
+                            <span class="feature-tag">سهل التنظيف</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="price-block">
+                                <span class="old-price">$129.99</span>
+                                <span class="current-price">$97.49</span>
+                            </div>
+                            <a href="#" class="amazon-btn">
+                                <i class="fab fa-amazon"></i>
+                                شراء الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-premium">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" alt="Fitness">
+                        <div class="product-overlay">
+                            <a href="#" class="quick-view">عرض سريع</a>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-rating">
+                            <span class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                            <span class="rating-text">(4.9/5 من 3,120 تقييم)</span>
+                        </div>
+                        <h3 class="product-title">حبل مقاومة احترافي للتمارين الرياضية</h3>
+                        <p class="product-description">
+                            مجموعة كاملة من أحبال المقاومة بمستويات مختلفة مع مقابض مريحة وحقيبة حمل.
+                        </p>
+                        <div class="product-features">
+                            <span class="feature-tag">5 مستويات</span>
+                            <span class="feature-tag">للمنزل والنادي</span>
+                            <span class="feature-tag">ضمان مدى الحياة</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="price-block">
+                                <span class="old-price">$49.99</span>
+                                <span class="current-price">$34.99</span>
+                            </div>
+                            <a href="#" class="amazon-btn">
+                                <i class="fab fa-amazon"></i>
+                                شراء الآن
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us" id="why-us">
+        <div class="section-header">
+            <span class="section-tag">لماذا تثق بنا؟</span>
+            <h2 class="section-title">ما يميزنا عن غيرنا</h2>
+            <p class="section-subtitle">نحن لا نبيع المنتجات فقط، نقدم تجربة تسوق موثوقة</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-box">
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+                <h3>بحث عميق ودقيق</h3>
+                <p>نحلل آلاف التقييمات الحقيقية ونختبر المنتجات شخصياً قبل التوصية بها. لا نعتمد على الوصف فقط.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box" style="background: var(--gradient-2);">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>أفضل الأسعار دائماً</h3>
+                <p>نراقب الأسعار يومياً ونخطرك بالعروض والخصومات الحصرية. نوفر لك平均 20-30% من قيمة مشترياتك.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box" style="background: var(--gradient-3);">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>مجتمع نشط</h3>
+                <p>انضم لمجتمعنا من المتسوقين الذكيين. شارك تجاربك واحصل على نصائح من خبراء التسوق.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>تحديثات مستمرة</h3>
+                <p>نحدث قائمة المنتجات أسبوعياً لنضمن لك أحدث الإصدارات والتقنيات المتوفرة في السوق.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>جودة مضمونة</h3>
+                <p>كل منتج نرشحه يجب أن يحصل على تقييم 4.5 نجوم على الأقل من آلاف المستخدمين الحقيقيين.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon-box" style="background: var(--gradient-2);">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>تنبيهات فورية</h3>
+                <p>اشترك في تنبيهاتنا واحصل على إشعار فوري عندما ينخفض سعر منتجك المفضل أو يعود للمخزون.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="newsletter-container">
+            <h2>لا تفوت أفضل العروض!</h2>
+            <p>اشترك في نشرتنا الأسبوعية واحصل على قائمة بأفضل 10 صفقات مباشرة في بريدك</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('شكراً للاشتراك! سنتواصل معك قريباً.');">
+                <input type="email" class="newsletter-input" placeholder="أدخل بريدك الإلكتروني..." required>
+                <button type="submit" class="newsletter-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    اشترك الآن
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-crown"></i> بريميوم ستور</h3>
+                    <p>وجهتك الأولى لاكتشاف أفضل منتجات أمازون بعناية واحترافية. نساعدك في اتخاذ قرارات شراء ذكية ومستنيرة.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#categories">الأقسام</a></li>
+                        <li><a href="#featured">المنتجات المميزة</a></li>
+                        <li><a href="#why-us">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>الأقسام</h4>
+                    <ul>
+                        <li><a href="#">تقنية وأجهزة</a></li>
+                        <li><a href="#">المنزل والمطبخ</a></li>
+                        <li><a href="#">رياضة ولياقة</a></li>
+                        <li><a href="#">جمال وعناية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>المساعدة</h4>
+                    <ul>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 بريميوم ستور. جميع الحقوق محفوظة.</p>
+                <p>صُنع بـ <i class="fas fa-heart" style="color: var(--secondary);"></i> في الوطن العربي</p>
+            </div>
+            <div class="disclaimer">
+                <i class="fas fa-info-circle"></i>
+                <strong>إخلاء مسؤولية:</strong> هذا الموقع يحتوي على روابط تسويق بالعمولة (Affiliate Links). عند شرائك من خلال روابطنا، نحصل على عمولة صغيرة من أمازون بدون أي تكلفة إضافية عليك. هذه العمولة تساعدنا في الاستمرار بتقديم محتوى عالي الجودة ومراجعات صادقة. جميع الآراء المعبر عنها هنا هي آراء شخصية مستقلة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.category-card, .product-premium, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
